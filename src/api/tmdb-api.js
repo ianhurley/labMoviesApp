@@ -86,3 +86,32 @@ export const getMovie = (args) => {
        throw error
     });
   };
+
+  export const getTopRatedMovies = (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    ).then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+       throw error
+    });
+  };
+
+  // retrieving movies with vote average rating less than 5
+  export const getLowRatedMovies = (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&vote_average.lte=5`
+    ).then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+       throw error
+    });
+  };
