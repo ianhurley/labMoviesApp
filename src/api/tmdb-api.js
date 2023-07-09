@@ -73,14 +73,14 @@ export const getMovie = (args) => {
       });
   };
 
-  export const getMovieCast = (id) => {
+  export const getMovieActors = (id) => {
     return fetch(
       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_TMDB_KEY}`
     )
       .then((res) => res.json())
       .then((json) => {
         
-        return json.results;
+        return json.cast;
       });
   };
   

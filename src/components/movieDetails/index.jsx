@@ -9,7 +9,8 @@ import Typography from "@mui/material/Typography";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
-import MovieReviews from '../movieReviews'
+import MovieReviews from '../movieReviews';
+import MovieActors from '../movieActors';
 
 const styles = {
   chipSet: {
@@ -25,14 +26,16 @@ const styles = {
     margin: 0.5,
   },
   fab: { 
-    position: "fixed",
+    position: "flex",
     top: 50,
     right: 2,
+    margin: 1,
   },
 };
 
 const MovieDetails = ( {movie}) => {
-  const [drawerOpen, setDrawerOpen] = useState(false); // New
+  const [drawerOpen, setDrawerOpen] = useState(false); // review list
+  const [actorsDrawerOpen, setActorsDrawerOpen] = useState(false); // actor list
 
   return (
     <>
@@ -77,6 +80,18 @@ const MovieDetails = ( {movie}) => {
       </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
+      </Drawer>
+      <Fab    
+        color="secondary"
+        variant="extended"
+        onClick={() =>setActorsDrawerOpen(true)}
+        sx={styles.fab}
+      >
+        <NavigationIcon />
+        Cast
+      </Fab>
+      <Drawer anchor="top" open={actorsDrawerOpen} onClose={() => setActorsDrawerOpen(false)}>
+        <MovieActors movie={movie} />
       </Drawer>
     </>
   );
