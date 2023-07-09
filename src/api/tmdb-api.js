@@ -72,6 +72,17 @@ export const getMovie = (args) => {
         return json.results;
       });
   };
+
+  export const getMovieCast = (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        
+        return json.results;
+      });
+  };
   
   export const getUpcomingMovies = (id) => {
     return fetch(
@@ -105,6 +116,36 @@ export const getMovie = (args) => {
   export const getLowRatedMovies = (id) => {
     return fetch(
       `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&vote_average.lte=5`
+    ).then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+       throw error
+    });
+  };
+
+  // retrieving trending movies of the day
+  export const getTrendingMovies = (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${import.meta.env.VITE_TMDB_KEY}`
+    ).then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+       throw error
+    });
+  };
+
+  // retrieving popular actors
+  export const getPopularActors = (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/person/popular?api_key=${import.meta.env.VITE_TMDB_KEY}`
     ).then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
