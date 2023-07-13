@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
-import { getMovieActors } from "../../api/tmdb-api";
+import { getMovieActors, getActorsDetails } from "../../api/tmdb-api";
 //import { excerpt } from "../../util";
 
 const styles = {
@@ -30,14 +30,21 @@ export default function MovieActors({ movie }) {
 
   console.log("Current actors state:", actors);
 
+  const getActorBio = (id) => {
+    console.log("fetched id:", id); //working
+    getActorsDetails(id).then((person) => {
+      console.log("fetched actor details:", person); //not working
+    });
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table sx={styles.table} aria-label="actors table">
         <TableHead>
           <TableRow>
             <TableCell >Actor</TableCell>
-            <TableCell align="center">Character</TableCell>
-            <TableCell align="right">More</TableCell>
+            <TableCell align="left">Character</TableCell>
+            <TableCell align="left">More</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -50,8 +57,15 @@ export default function MovieActors({ movie }) {
                 {a.character}
                 </TableCell>
               <TableCell >
-                <Link to="/bio">
-                  Link to Bio
+                <Link 
+                to={`/actors/${a.id}`}
+                onClick={() => getActorBio(a.id)}
+                state={{
+                    actor: a.biography,
+                    movie: movie,
+                }}
+                >
+                    View Bio
                 </Link>
               </TableCell>
             </TableRow>

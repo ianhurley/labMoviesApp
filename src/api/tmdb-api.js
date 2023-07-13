@@ -80,7 +80,18 @@ export const getMovie = (args) => {
       .then((res) => res.json())
       .then((json) => {
         
-        return json.cast;
+        return json.cast.slice(0,10); //limiting to top 10 results
+      });
+  };
+
+  export const getActorsDetails = (id) => {
+    return fetch(
+      `https://api.themoviedb.org/3/person/${id}/?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        
+        return json;
       });
   };
   
