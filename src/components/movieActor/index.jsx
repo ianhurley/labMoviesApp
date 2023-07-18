@@ -1,16 +1,16 @@
 import React from "react";
 
-const MovieActor =  ({ person }) => {
+const MovieActor =  ({ actor }) => {
+  console.log("actor:", actor);
+
   return (
     <>
-    {/*
     <img
-                src={`https://image.tmdb.org/t/p/w185${person.profile_path}`}
-                alt={person.name}
+                src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`}
+                alt={actor.name}
                  />
-      <p>Actor: {person.name} </p>
-      <p>{person.biography} </p>
-  */}
+      <p>Actor: {actor.name} </p>
+      <p>Biography: {actor.biography} </p>
     </>
   );
 };

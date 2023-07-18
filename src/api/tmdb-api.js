@@ -86,11 +86,11 @@ export const getMovie = (args) => {
 
   export const getActorsDetails = (id) => {
     return fetch(
-      `https://api.themoviedb.org/3/person/${id}/?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/person/${id}?api_key=${import.meta.env.VITE_TMDB_KEY}`
     )
       .then((res) => res.json())
       .then((json) => {
-        
+
         return json;
       });
   };
