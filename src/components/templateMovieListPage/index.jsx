@@ -21,9 +21,11 @@ const styles = {
 function MovieListPageTemplate({ movies, title, action }) {
   const [titleFilter, setTitleFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
+  const [certFilter, setCertFilter] = useState("0");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const genreId = Number(genreFilter);
+  const certId = Number(certFilter);
 
   let displayedMovies = movies
     .filter((m) => {
@@ -31,11 +33,19 @@ function MovieListPageTemplate({ movies, title, action }) {
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
+    })
+    .filter((m) => {
+      return certId > 0 ? m.cert_ids.includes(certId) : true;
     });
 
   const handleChange = (type, value) => {
     if (type === "title") setTitleFilter(value);
     else setGenreFilter(value);
+  };
+
+  const handleCertChange = (type, value) => {
+    if (type === "title") setTitleFilter(value);
+    else setCertFilter(value);
   };
 
   return (
@@ -63,8 +73,10 @@ function MovieListPageTemplate({ movies, title, action }) {
       >
         <FilterCard
           onUserInput={handleChange}
+          onCertChange={handleCertChange}
           titleFilter={titleFilter}
           genreFilter={genreFilter}
+          certFilter={certFilter}
         />
       </Drawer>
     </>  
