@@ -35,6 +35,7 @@ const SiteHeader = () => {
     { label: "Low Rated", path: "/movies/lowrated" },
     { label: "Trending Today", path: "/movies/trending" },
     { label: "Popular Actors", path: "/movies/actors" },
+    { label: "Fantasy Movie", path: "/movies/fantasy" },
   ];
 
   const handleMenuSelect = (pageURL) => {

@@ -21,7 +21,7 @@ const styles = {
 function MovieListPageTemplate({ movies, title, action }) {
   const [titleFilter, setTitleFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
-  const [certFilter, setCertFilter] = useState("0");
+  const [certFilter, setCertFilter] = useState("");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const genreId = Number(genreFilter);

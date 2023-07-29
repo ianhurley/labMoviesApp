@@ -51,9 +51,9 @@ export default function FilterMoviesCard(props) {
   }
 
   const certs = certsData?.certifications?.US || [];
-  if (certs[0].name !== "All") {
-    certs.unshift({ id: "0", name: "All" });
-  }
+  //if (certs[0].name !== "All") {
+  //  certs.unshift({ id: "0", name: "All" });
+  //}
 
   const handleUserImput = (e, type, value) => {
     e.preventDefault();
