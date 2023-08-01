@@ -232,8 +232,12 @@ const FantasyForm = () => {
             sx={styles.submit}
             onClick={() => {
               reset({
-                author: "",
-                content: "",
+                title: "",
+                genre: "",
+                releasedate: "",
+                runtime: "",
+                productionCompany: "",
+                overview: "",
               });
             }}
           >

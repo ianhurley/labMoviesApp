@@ -1,7 +1,10 @@
-//import PageTemplate from "../components/siteHeader";
 import { getPopularActors } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
 
 const Popular = (props) => {
   const { data, error, isLoading, isError } = useQuery("popularActors", getPopularActors);
@@ -16,29 +19,39 @@ const Popular = (props) => {
   }
 
   const actors = data ? data.results : [];
-  console.log("test results",actors); //testing returned data - working
-  
-// test display details
+  console.log("test results", actors); //testing returned data - working
+
+  // test display details
   return (
     <>
-      <h2>Popular Actors:</h2>
-      <ul>
+      <Typography component="h2" variant="h3">
+        Popular Actors
+      </Typography>
+      <Grid container spacing={2}>
         {actors.map((actor) => (
-          <li key={actor.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`}
-              alt={actor.name}
-            />
-            <h3>{actor.name}</h3>
-            <h4>Known For:</h4>
-            <ul>
-              {actor.known_for.map((item) => (
-                <li key={item.id}>{item.title}</li>
-              ))}
-            </ul>
-          </li>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={actor.id}>
+            <Box component={Paper} p={2}>
+              <img
+                src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`}
+                alt={actor.name}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+              <Typography variant="h5" style={{ marginTop: "8px" }}>
+                {actor.name}
+              </Typography>
+              <Typography variant="h8">Known For:</Typography>
+              <ul>
+                {actor.known_for.map((item) => (
+                  <li key={item.id}>{item.title}</li>
+                ))}
+              </ul>
+            </Box>
+          </Grid>
         ))}
-      </ul>
+      </Grid>
     </>
   );
 };
