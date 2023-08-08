@@ -4,7 +4,6 @@ __Name:__ Ian Hurley
 
 ## Features.
 
-[A bullet-point list of the features developed for the React SPA app (only new/modified ones for the Movies app),]
 
 + Top Rated Movies Page
 + Low Rated Movies Page 
@@ -15,11 +14,7 @@ __Name:__ Ian Hurley
 + Fantasy Movie Form
 
 
-## Feature Design.
-
-[ For each feature listed above, show a screenshot(s) of its UI layout (use appropriate magnification for accessibility). Include a caption with each image.]
-
-e.g. 
+## Feature Design. 
 
 #### Top Rated Movies Page.
 
@@ -45,31 +40,40 @@ e.g.
 
 ![popular actors](src/images/popularActors.PNG)
 
-#### Popular Actors List Page with Bio Link.
+#### Cast List Drawer with Bio Link.
 
 > Click the 'Cast' link of a movie to list top 10 results from the Credits endpoint of TMDB. 
 
 ![cast link](src/images/castLink.PNG)
+
+> Cast drawer display with 'View Bio' Link. 
+
 ![cast drawer](src/images/castDrawer.PNG)
 
 > Click the 'View Bio' link of the cast list from the Person endpoint of TMDB. 
 
-![][image6]
+![view bio](src/images/viewBio.PNG)
+
+> View Bio issue retrieving/displaying fetched details - unresolved.
+
+![view bio issue](src/images/viewBioIssue.PNG)
 
 #### Filter By Certification
 
 > Click the 'Filter' link on Movies to filter by Certification from the Certification endpoint of TMDB. 
 
-![][image7]
+![filter by certification](src/images/filterByCertification.PNG)
+
+> Filter selection error preventing page refresh - unresolved. 
+
+![filter selection error](src/images/filterSelect.PNG)
 
 #### Fantasy Movie Form
 
-> Fantasy Movie page form to Create Fantasy Movie by user.
+> Fantasy Movie page form to Create Fantasy Movie by user. 
 
-![][image8]
+![fantasy movie form](src/images/fantasyMovieForm.PNG)
 
+> Fantasy Movie Form Submission.
 
-
-
-
-.... other features .......
+![form submit](src/images/fantasyMovieSubmit.PNG)

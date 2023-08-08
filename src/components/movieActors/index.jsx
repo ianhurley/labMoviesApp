@@ -66,7 +66,7 @@ export default function MovieActors({ movie }) {
                       id: a.id,
                       name: a.name,
                       profile_path: a.profile_path,
-                      //biography: a.biography, //not in actor/credits profile...in person profile on TMDB
+                      biography: a.biography, //not in actor/credits profile...in person profile on TMDB
                     },
                     movie: movie,
                 }}

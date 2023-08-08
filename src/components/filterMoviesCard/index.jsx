@@ -51,9 +51,9 @@ export default function FilterMoviesCard(props) {
   }
 
   const certs = certsData?.certifications?.US || [];
-  //if (certs[0].name !== "All") {
-  //  certs.unshift({ id: "0", name: "All" });
-  //}
+  if (certs[0].certification !== "All") {
+    certs.unshift({ certification: "All" });
+  }
 
   const handleUserImput = (e, type, value) => {
     e.preventDefault();
@@ -68,11 +68,13 @@ export default function FilterMoviesCard(props) {
     handleUserImput(e, "genre", e.target.value);
   };
 
+  console.log("genres:", genres);
+
   const handleCertChange = (e) => {
-    handleUserImput(e, "certification", e.target.value);
+    handleUserImput(e, "cert", e.target.value);
   };
 
-  //console.log("certs:", certs);
+  console.log("certs:", certs);
 
   return (
     <>
@@ -134,7 +136,7 @@ export default function FilterMoviesCard(props) {
             Sort the movies.
           </Typography>
           <FormControl sx={styles.formControl}>
-          <InputLabel id="year-label">Year</InputLabel>
+          <InputLabel id="year-label">-</InputLabel>
         </FormControl>
         </CardContent>
       </Card>
